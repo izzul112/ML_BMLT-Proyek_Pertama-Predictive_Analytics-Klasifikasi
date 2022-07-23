@@ -39,7 +39,7 @@ Solusi dari masalah tersebut, kita kembangkan sebuah model Machine Learning (ML)
 
 ## Data Understanding
 
-Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditanyakan ketika membeli hp atau mungkin menjadi suatu standar yang digunakan masyarakat dalam menggolongkan kelas harga dari suatu hp. Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv)
+Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditanyakan ketika membeli hp atau mungkin menjadi suatu standar yang digunakan masyarakat dalam menggolongkan kelas harga dari suatu hp. Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv). Yang di publis oleh ABHISHEK SHARMA.
 
 ### Variabel-variabel pada Mobile Price Classification adalah sebagai berikut:
 
@@ -69,7 +69,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
 
 **Rubrik/Kriteria Tambahan (Opsional):**
 1. Kita akan melihat ada berapa jumlah baris dari data dalam tampilan tabel.
-   Kita akan menggunakan menggunakan `data_train.head()`, `data_train` adalah nama variabel yang kita ganakan saat meload dataset kita, sedang fungsi `.head()` akan menampilkan 5 baris data teratas dari keseluruhan dataset kita. Dari kode `data_train.head()` kita mendapat informasi:
+   Kita akan menggunakan menggunakan kode `data_train`, `data_train` adalah nama variabel yang kita ganakan saat meload dataset kita. Dari kode `data_train` kita mendapat informasi:
    - Ada 2000 baris dalam dataset
    - Dan seperti yang dijelaskan dalam deskipsi variabel ada 21 kolom
    
@@ -123,7 +123,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    - Di binary_features, fitur three_g tidak memiliki gambar atau gambarnya putih bersih, karena nilai hanya 1 saja atau kebanyakan hp pada dataset sudah masuk kategori three_g semua, jadi kita akan menghapus fitur ini, fitur four_g dan dual_sim juga karena memiliki korelasi paling kecil yaitu 0.
    - Di non_binary_features, fitur **ram** merupakan fitur dengan tingkat korelasi tertinggi yaitu: 0.92. Sedang n_core dan talk_time memiliki korelasi paling kecil yaitu 0, maka kita akan menghapus 2 fitur ini.
    
-   Dengan ini total kolom yang kita miliki ada 16 menyusut 5 dari total di awal kita memiliki 21 kolom.
+   Dengan ini total kolom yang kita miliki ada 16, menyusut 5 dari total di awal kita memiliki 21 kolom.
 
 ## Data Preparation
 
@@ -133,5 +133,80 @@ Di proses ini kita akan melakukan 2 proses yaitu:
 
 **Rubrik/Kriteria Tambahan (Opsional):**
 1. Reduksi dimensi dengan Principal Component Analysis (PCA).
+   Teknik reduksi (pengurangan) dimensi adalah prosedur yang mengurangi jumlah fitur dengan tetap mempertahankan informasi pada data. Teknik pengurangan dimensi yang paling populer adalah Principal Component Analysis atau disingkat menjadi PCA. Teknik PCA digunakan untuk mereduksi variabel asli menjadi sejumlah kecil variabel baru yang tidak berkorelasi linier, disebut komponen utama (PC). Komponen utama ini dapat menangkap sebagian besar varians dalam variabel asli. Sehingga, saat teknik PCA diterapkan pada data, ia hanya akan menggunakan komponen utama dan mengabaikan sisanya.
+   
+   Berikut penjelasan untuk masing-masing komponen utama (PC):
+   - PC pertama mewakili arah varians maksimum dalam data. Ia paling banyak menangkap informasi dari semua fitur dalam data. 
+   - PC kedua menangkap sebagian besar informasi yang tersisa setelah PC pertama. 
+   - PC ketiga menangkap sebagian besar informasi yang tersisa setelah PC pertama, PC kedua, dst.
 
+   Jika kita cek menggunakan fungsi pairplot, keempat fitur ukuran hp dalam kolom 'px_height', 'px_width','sc_h','sc_w' dan 'm_dep' memiliki korelasi yang tidak terlalu tinggi.
+   
+   Selanjutnya kita import dulu kelas PCA nya dengan kode `from sklearn.decomposition import PCA`, setelah itu kita set variabel dari kelas PCA kita, untuk `n_components=2` dan `n_components=3` kita set = 2 dan 3 karena ada 5 fitur yang akan kita proses secara sendiri-sendiri, sedang `random_state=123)` kita set dengan = 123, `random_state` ini bebas kita isi dengan angka berapapun asal itu masih bilangan integer.
+   
+   Setelah itu kita print hasilnya yang `n_components=2` dulu hasilnya adalah `array([0.75, 0.25])` artinya 75% dari kedua fitur ada di PC pertama dan 25% di PC kedua, Sedang untuk `n_components=3` hasilnya adalah `array([0.757, 0.241, 0.002])` yang artinya 75% dari ke 3 fitur ada di PC pertama, 24% ada di PC kedua dan 0,002 atau sisanya ada di PC3.
+   
+2. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
+   Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model. Kita perlu mempertahankan sebagian data yang ada untuk menguji seberapa baik klasifikasi model terhadap data baru. Tujuannya adalah agar kita tidak mengotori data uji dengan informasi yang kita dapat dari data latih. Proporsi pembagian bisanya 80:20 jika data kita hanya 1000-an.
+   
+   Pertama kita import dulu kelas train_test_split dengan kode `from sklearn.model_selection import train_test_split`, setelah itu kita hapus fitur price_range pada variabel `X` dengan kode `X = data_train.drop(["price_range"],axis =1)` untuk variabel `y` kita set isinya price_range dengan kode `y = data_train["price_range"]`, setelah itu kita bagi dataset kita dengan proporsi data latih 80% dan data tes 20% dengan kode `X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 123)`.
+   
+   Setelah itu kita print dan lihat total dari pembagiannya, dengan data latih berjumlah 1204 dan data tes berjumlah 302.
 
+## Modeling
+
+Di tahap ini kita akan menggunakan 3 jenis algoritma yaitu:
+- K-Nearest Neighbor (KNN) dengan KNeighborsClassifier
+- Random Forest dengan RandomForestClassifier
+- Boosting Algorithm dengan GradientBoostingClassifier
+
+**Rubrik/Kriteria Tambahan (Opsional):**
+1. K-Nearest Neighbor (KNN) dengan KNeighborsClassifier
+
+   Algoritma KNN menggunakan ‘kesamaan fitur’ untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan.
+   
+   KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). KNN bisa digunakan untuk kasus klasifikasi dan regresi.
+
+   Kelebihan pada Algoritma KNN adalah:
+   - Algoritma K-NN kuat dalam mentraining data yang noisy.
+   - Algoritma K-NN sangat efektif jika datanya besar.
+   - Mudah diimplementasikan.
+   
+   Kekurangan pada Algoritma KNN adalah:
+   - Algoritma K-NN perlu menentukan nilai parameter K.
+   - Sensitif pada data pencilan / titik data yang terpaut jauh dari titik data lainnya.
+   - Rentan pada variabel yang non-informatif.
+   
+   
+   
+
+2. Random Forest dengan RandomForestClassifier
+
+   Algoritma random forest adalah salah satu algoritma supervised learning. Ia dapat digunakan untuk menyelesaikan masalah klasifikasi dan regresi. Random forest juga merupakan algoritma yang sering digunakan karena cukup sederhana tetapi memiliki stabilitas yang mumpuni.
+   
+   Random forest merupakan salah satu model machine learning yang termasuk ke dalam kategori ensemble (group) learning. Apa itu model ensemble? Sederhananya, ia merupakan model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Ide dibalik model ensemble adalah sekelompok model yang bekerja bersama menyelesaikan masalah. Sehingga, tingkat keberhasilan akan lebih tinggi dibanding model yang bekerja sendirian. Pada model ensemble, setiap model harus membuat prediksi secara independen. Kemudian, prediksi dari setiap model ensemble ini digabungkan untuk membuat prediksi akhir.
+   
+   Kelebihan pada Algoritma Random Forest adalah:
+   - Dapat mengatasi noise dan missing value.
+   - Dapat mengatasi data dalam jumlah yang besar.
+   
+   Kekurangan pada Algoritma Random Forest adalah:
+   - Interpretasi yang sulit.
+   - Membutuhkan tuning model yang tepat untuk data.
+   
+   
+3. Boosting Algorithm dengan GradientBoostingClassifier
+
+   Algoritma yang menggunakan teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.
+   
+   Seperti namanya, boosting, algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi. Caranya adalah dengan menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) sehingga membentuk suatu model yang kuat (strong ensemble learner). Algoritma boosting muncul dari gagasan mengenai apakah algoritma yang sederhana seperti linear regression dan decision tree dapat dimodifikasi untuk dapat meningkatkan performa.
+   
+   Kelebihan pada Algoritma Boosting adalah:
+   - Hasil pemodelan yang lebih akurat.
+   - Model yang stabil dan lebih kuat (robust).
+   
+   Kekurangan pada Algoritma Boosting adalah:
+   - Pengurangan kemampuan interpretasi model.
+   - Tingkat kesulitan yang tinggi.
+   
+   
