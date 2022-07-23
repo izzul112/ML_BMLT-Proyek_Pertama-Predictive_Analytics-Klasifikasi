@@ -94,6 +94,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    
 5. Kita akan melihat apakah data kita memiliki outliers
    Kita akan mengeceknya dengan fungsi `sns.boxplot(x=data_train['px_height'])`. Variabel `sns` adalah tempat kita menampung library **Seaborn** yang akan kita gunakan untuk memvisualisaikan dataset kita. Fungsi `.boxplot()` akan menampilkan visualisasi dari dataset kita dengan visualisasi seperti gambar berikut:
+   
    ![gambar boxplot](https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:3be38c69ec4f1ee07ce8c24e42ce23fb20210910131731.png)
    
    Dalam hal ini kita menggunakan sampel `px_heght` dari gambar bisa kita lihat adanya outliers.
@@ -103,5 +104,16 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    Tenang tidak perlu panik kita akan mengatasinya dengan teknik IQR dimana data yang berada di luar Q1 dan Q3 adalah outlier, dimana kita akan menentukan nilai batas atas dan bawah, dengan persamaan berikut:
    - Batas bawah = Q1 - 1.5 * IQR
    - Batas atas = Q3 + 1.5 * IQR
-
+   
+   Langsung saja kita set variabel Q1, Q2 dan IQR-nya
+   - `Q1 = data_train.quantile(0.25)`
+   - `Q3 = data_train.quantile(0.75)`
+   - `IQR=Q3-Q1`
+   
+   Setelah itu kita hitung dan hapus sekalian data yang tidak sesuai dengan spesifikasi yang kita buat dengan kode berikut
+   - `data_train=data_train[~((data_train<(Q1-1.5*IQR))|(data_train>(Q3+1.5*IQR))).any(axis=1)]`
+   - `data_train.shape` kemudian kita periksa juga sisa dataset kita, yaitu tersisa 1506 baris dan 21 kolom
+   
 5. Kita akan melihat variabel apa saja yang memiliki hubungan yang kuat atas klasifikasi harga suatu hp
+   Pertama kita akan melihat 21 kolom yang ada dalam dataset dalam bentuk tabel supaya kita bisa lebih mengetahui tentang isi dari nilai setiap kolom dengan kode berikut `data_train.hist(bins=50, figsize=(20,15))` plt.show()
+
