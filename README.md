@@ -146,6 +146,12 @@ Di proses ini kita akan melakukan 2 proses yaitu:
    
    Setelah itu kita print hasilnya yang `n_components=2` dulu hasilnya adalah `array([0.75, 0.25])` artinya 75% dari kedua fitur ada di PC pertama dan 25% di PC kedua, Sedang untuk `n_components=3` hasilnya adalah `array([0.757, 0.241, 0.002])` yang artinya 75% dari ke 3 fitur ada di PC pertama, 24% ada di PC kedua dan 0,002 atau sisanya ada di PC3.
    
+   Selanjutnya Kita reduksi kelima fitur tersebut menjadi 2 yaitu dimension_px dan dimension_hp, dimension_px adalah dimensi pexel sedang dimension_hp adalah dimensi dari hp tersebut. Kita akan melakukan perubahan sebagai berikut
+   - `n_components=1` karena hanya ada 1 komponen saja.
+   - Fit model dengan data masukan.
+   - Tambahkan fitur baru ke dataset dengan nama 'dimension_px' dan dimension_hp, kemudian lakukan proses transformasi.
+   - Drop kolom 'px_height', 'px_width' untuk dimension_px, sedang 'sc_h','sc_w', 'm_dep' untuk dimension_hp.
+   
 2. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
    Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model. Kita perlu mempertahankan sebagian data yang ada untuk menguji seberapa baik klasifikasi model terhadap data baru. Tujuannya adalah agar kita tidak mengotori data uji dengan informasi yang kita dapat dari data latih. Proporsi pembagian bisanya 80:20 jika data kita hanya 1000-an.
    
