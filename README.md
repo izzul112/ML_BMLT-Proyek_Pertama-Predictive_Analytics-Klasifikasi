@@ -217,6 +217,23 @@ Di tahap ini kita akan menggunakan 3 jenis algoritma yaitu:
    
 ## Evaluation
 
-Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `mean_absolute_error`
+Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `accuracy_score` dan `classification_report`. Dan diakhir kita akan memilih model yang paling baik dari evaluasi menggunakan kedua mertik tersebut.
 
 **Rubrik/Kriteria Tambahan (Opsional):**
+1. Cara kerja metrik `accuracy_score`
+
+   Metrik `accuracy_score` bekerja dengan rumus, Accuracy Score = (TP+TN)/ (TP+FN+TN+FP), dimana:
+   - TP = True Positive 
+   - TN = True Negative
+   - FP = False Positive
+   - FN = False Negatif
+   Dalam klasifikasi multilabel, fungsi mengembalikan akurasi subset. Jika seluruh rangkaian label yang diprediksi untuk sampel secara akurat cocok dengan rangkaian label yang sebenarnya. Maka akurasi subset adalah 1,0 jika tidak, akurasinya hampir 0,0.
+   
+2. Cara kerja metrik `classification_report`
+   
+   Metrik `classification_report` bekerja dengan mengembalikan 4 nilai yaitu 'precision', 'recall', 'f1-score', 'support'. Dengan acuan seperti berikut:
+   - Jika dataset memiliki jumlah data False Negatif dan False Positif yang seimbang (Symmetric), maka bisa gunakan **Accuracy**, tetapi jika tidak seimbang, maka sebaiknya menggunakan **F1-Score**.
+   - Dalam suatu problem, jika lebih memilih False Positif lebih baik terjadi daripada False Negatif, misalnya: Dalam kasus Fraud/Scam, kecenderungan model mendeteksi transaksi sebagai fraud walaupun kenyataannya bukan, dianggap lebih baik, daripada transaksi tersebut tidak terdeteksi sebagai fraud tetapi ternyata fraud. Untuk problem ini sebaiknya menggunakan **Recall**.
+   - Sebaliknya, jika lebih menginginkan terjadinya True Negatif dan sangat tidak menginginkan terjadinya False Positif, sebaiknya menggunakan **Precision**.
+
+
