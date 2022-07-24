@@ -215,4 +215,8 @@ Di tahap ini kita akan menggunakan 3 jenis algoritma yaitu:
    - Pengurangan kemampuan interpretasi model.
    - Tingkat kesulitan yang tinggi.
    
-   
+## Evaluation
+
+Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `mean_absolute_error`
+
+**Rubrik/Kriteria Tambahan (Opsional):**
