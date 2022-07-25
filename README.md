@@ -39,7 +39,9 @@ Solusi dari masalah tersebut, kita kembangkan sebuah model Machine Learning (ML)
 
 ## Data Understanding
 
-Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditanyakan ketika membeli hp atau mungkin menjadi suatu standar yang digunakan masyarakat dalam menggolongkan kelas harga dari suatu hp. Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv). Yang di publis oleh ABHISHEK SHARMA.
+Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditanyakan ketika membeli hp atau mungkin menjadi suatu standar yang digunakan masyarakat dalam menggolongkan kelas harga dari suatu hp.
+
+Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv). Yang di publis oleh ABHISHEK SHARMA.
 
 ### Variabel-variabel pada Mobile Price Classification adalah sebagai berikut:
 
@@ -65,7 +67,11 @@ Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditany
 - wifi : punya wifi atau tidak
 - price_range : rentang harga
 
-Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan membuat model berdasar rentang harga yang ada di dalam variabel price_range, dengan nilai 0 = low cost (murah), 1 = medium cost (standar), 2 = high cost (mahal / flagship), 3 = very high cost (hp para sultan).
+Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan membuat model berdasar rentang harga yang ada di dalam variabel price_range, dengan nilai:
+- 0 = low cost (murah)
+- 1 = medium cost (standar)
+- 2 = high cost (mahal / flagship)
+- 3 = very high cost (hp para sultan)
 
 **Rubrik/Kriteria Tambahan (Opsional):**
 1. Kita akan melihat ada berapa jumlah baris dari data dalam tampilan tabel.
