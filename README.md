@@ -102,7 +102,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    
    Kita akan mengeceknya dengan fungsi `.isnull().sum()`. Fungsi `.isnull()` akan mengecek apakah ada data kosng pada setiap baris pada semua kolom di dataset kita, kemudian kita gunakan juga fungsi `.sum()` untuk menjumlahnya sehingga hasilnya akan seperti berikut. Dari hasil outputnya data kita tidak memiliki data yang kosong.
    
-5. Kita akan melihat apakah data kita memiliki outliers
+5. Kita akan melihat apakah data kita memiliki outliers.
    
    Kita akan mengeceknya dengan fungsi `sns.boxplot(x=data_train['px_height'])`. Variabel `sns` adalah tempat kita menampung library **Seaborn** yang akan kita gunakan untuk memvisualisaikan dataset kita. Fungsi `.boxplot()` akan menampilkan visualisasi dari dataset kita dengan visualisasi seperti gambar berikut:
    
@@ -125,7 +125,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    - `data_train=data_train[~((data_train<(Q1-1.5*IQR))|(data_train>(Q3+1.5*IQR))).any(axis=1)]`
    - `data_train.shape` kemudian kita periksa juga sisa dataset kita, yaitu tersisa 1506 baris dan 21 kolom
    
-5. Kita akan melihat variabel apa saja yang memiliki hubungan yang kuat atas klasifikasi harga suatu hp
+6. Kita akan melihat variabel apa saja yang memiliki hubungan yang kuat atas klasifikasi harga suatu hp.
    
    Pertama kita akan melihat 21 kolom yang ada dalam dataset dalam bentuk tabel supaya kita bisa lebih mengetahui tentang isi dari nilai setiap kolom dengan kode berikut `data_train.hist(bins=50, figsize=(20,15))` fungsi `.hist()` akan menampilkan data dalam bentul diagram dengan variabel `bins=50` adalah jumlah menara pada data yaitu 50 sedang `figsize=(20,15)` adalah ukuran dari diagram kita. setelah itu kita gunkan kode `plt.show()` untuk menampilkan diagramnya. Dari tampilan diagram dapat kita simpulkan bahwa ada beberapa variabel yang bertipe biner atau yang isinya hanya 0 dan 1, dan ada yang isinya angka lebih dari itu. Kita lihat list dibawah untuk lebi jelas mana yang memiliki fitur biner dan bukan.
    - binary_features = blue, dual_sim, four_g, three_g, touch_screen, wifi
@@ -137,6 +137,12 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    
    Dengan ini total kolom yang kita miliki ada 16, menyusut 5 dari total di awal kita memiliki 21 kolom.
 
+7. Kita akan melihat perbandingan jumlah sampel dari variabel price_range
+   
+   Kita akan melihatnya dalam bentuk tabel.
+   
+   Dari hasil visualisasi diatas dapat kita simpulkan bahawa dataset kita memiliki jumlah sampel yang seimbang atau tidak berat sebelah.
+   
 ## Data Preparation
 
 Di proses ini kita akan melakukan 2 proses yaitu:
@@ -151,17 +157,15 @@ Di proses ini kita akan melakukan 2 proses yaitu:
    - PC pertama mewakili arah varians maksimum dalam data. Ia paling banyak menangkap informasi dari semua fitur dalam data. 
    - PC kedua menangkap sebagian besar informasi yang tersisa setelah PC pertama. 
    - PC ketiga menangkap sebagian besar informasi yang tersisa setelah PC pertama, PC kedua, dst.
-
-   Jika kita cek menggunakan fungsi pairplot, keempat fitur ukuran hp dalam kolom 'px_height', 'px_width','sc_h','sc_w' dan 'm_dep' memiliki korelasi yang tidak terlalu tinggi.
    
    Selanjutnya kita import dulu kelas PCA nya dengan kode `from sklearn.decomposition import PCA`, setelah itu kita set variabel dari kelas PCA kita, untuk `n_components=2` dan `n_components=3` kita set = 2 dan 3 karena ada 5 fitur yang akan kita proses secara sendiri-sendiri, sedang `random_state=123)` kita set dengan = 123, `random_state` ini bebas kita isi dengan angka berapapun asal itu masih bilangan integer.
    
    Setelah itu kita print hasilnya yang `n_components=2` dulu hasilnya adalah `array([0.75, 0.25])` artinya 75% dari kedua fitur ada di PC pertama dan 25% di PC kedua, Sedang untuk `n_components=3` hasilnya adalah `array([0.757, 0.241, 0.002])` yang artinya 75% dari ke 3 fitur ada di PC pertama, 24% ada di PC kedua dan 0,002 atau sisanya ada di PC3.
    
-   Selanjutnya Kita reduksi kelima fitur tersebut menjadi 2 yaitu dimension_px dan dimension_hp, dimension_px adalah dimensi pexel sedang dimension_hp adalah dimensi dari hp tersebut. Kita akan melakukan perubahan sebagai berikut
+   Selanjutnya Kita reduksi kelima fitur tersebut menjadi 2 yaitu resolution_px dan dimension_hp, resolution_px adalah dimensi pexel sedang dimension_hp adalah dimensi dari hp tersebut. Kita akan melakukan perubahan sebagai berikut
    - `n_components=1` karena hanya ada 1 komponen saja.
    - Fit model dengan data masukan.
-   - Tambahkan fitur baru ke dataset dengan nama 'dimension_px' dan dimension_hp, kemudian lakukan proses transformasi.
+   - Tambahkan fitur baru ke dataset dengan nama 'resolution_px' dan dimension_hp, kemudian lakukan proses transformasi.
    - Drop kolom 'px_height', 'px_width' untuk dimension_px, sedang 'sc_h','sc_w', 'm_dep' untuk dimension_hp.
    
 2. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
@@ -194,8 +198,6 @@ Di tahap ini kita akan menggunakan 3 jenis algoritma yaitu:
    - Algoritma K-NN perlu menentukan nilai parameter K.
    - Sensitif pada data pencilan / titik data yang terpaut jauh dari titik data lainnya.
    - Rentan pada variabel yang non-informatif.
-   
-   
    
 
 2. Random Forest dengan RandomForestClassifier
@@ -241,6 +243,10 @@ Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `accur
    - FN = False Negatif
    Dalam klasifikasi multilabel, fungsi mengembalikan akurasi subset. Jika seluruh rangkaian label yang diprediksi untuk sampel secara akurat cocok dengan rangkaian label yang sebenarnya. Maka akurasi subset adalah 1,0 jika tidak, akurasinya hampir 0,0.
    
+   ![Screenshot_3](https://user-images.githubusercontent.com/43197282/180794358-a739ae28-2ae1-4d56-b81a-c7266ae63cc4.jpg)
+   
+   Dari hasil diatas **Model KNN** bisa dibilang yang terbaik menurut metrik `accuracy_score`.
+   
 2. Cara kerja metrik `classification_report`
    
    Metrik `classification_report` bekerja dengan mengembalikan 4 nilai yaitu 'precision', 'recall', 'f1-score', 'support'. Dengan acuan seperti berikut:
@@ -248,4 +254,5 @@ Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `accur
    - Dalam suatu problem, jika lebih memilih False Positif lebih baik terjadi daripada False Negatif, misalnya: Dalam kasus Fraud/Scam, kecenderungan model mendeteksi transaksi sebagai fraud walaupun kenyataannya bukan, dianggap lebih baik, daripada transaksi tersebut tidak terdeteksi sebagai fraud tetapi ternyata fraud. Untuk problem ini sebaiknya menggunakan **Recall**.
    - Sebaliknya, jika lebih menginginkan terjadinya True Negatif dan sangat tidak menginginkan terjadinya False Positif, sebaiknya menggunakan **Precision**.
 
+   Dari hasil print bisa di simpulkan **Model KNN** masih memimpin soal hasil, kita melihatnya dari Test nya bukan Trainnya. Kita lihat nilai accuracy karena jumlah data kita yang seimbang.
 
