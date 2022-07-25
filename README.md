@@ -75,16 +75,19 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
 
 **Rubrik/Kriteria Tambahan (Opsional):**
 1. Kita akan melihat ada berapa jumlah baris dari data dalam tampilan tabel.
+
    Kita akan menggunakan menggunakan kode `data_train`, `data_train` adalah nama variabel yang kita ganakan saat meload dataset kita. Dari kode `data_train` kita mendapat informasi:
    - Ada 2000 baris dalam dataset
    - Dan seperti yang dijelaskan dalam deskipsi variabel ada 21 kolom
    
 2. Kita akan melihat tipe data dari 21 kolom di dataset.  
+   
    Kita akan menggunakan `data_train.info()`, `.info` akan menampilkan informasi tipe data 21 kolom dataset yang kita gunakan. Dari output terlihat bahwa:   
-   - Terdapat 2 kolom numerik dengan tipe data float64 yaitu : clock_speed dan m_dept
-   - Terdapat 19 kolom numerik dengan tipe data int64 yaitu : battery_power, blue, dual_sim, fc, four_g, int_memory, mobile_wt, n_cores, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, three_g, touch_schreen, wifi dan price_range
+   - Terdapat 2 kolom numerik dengan tipe data float64 yaitu : clock_speed dan m_dept.
+   - Terdapat 19 kolom numerik dengan tipe data int64 yaitu : battery_power, blue, dual_sim, fc, four_g, int_memory, mobile_wt, n_cores, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, three_g, touch_schreen, wifi dan price_range.
 
 3. Kita akan mengecek deskripsi statistik data.
+   
    Kita akan mengeceknya dengan fungsi `describe()`. Fungsi `describe()` memberikan informasi statistik pada masing-masing kolom, antara lain:
    - Count adalah jumlah sampel pada data.
    - Mean adalah nilai rata-rata.
@@ -96,9 +99,11 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    - Max adalah nilai maksimum.
 
 4. Kita akan melihat apakah ada data yang kosong / tidak ada isinya.
+   
    Kita akan mengeceknya dengan fungsi `.isnull().sum()`. Fungsi `.isnull()` akan mengecek apakah ada data kosng pada setiap baris pada semua kolom di dataset kita, kemudian kita gunakan juga fungsi `.sum()` untuk menjumlahnya sehingga hasilnya akan seperti berikut. Dari hasil outputnya data kita tidak memiliki data yang kosong.
    
 5. Kita akan melihat apakah data kita memiliki outliers
+   
    Kita akan mengeceknya dengan fungsi `sns.boxplot(x=data_train['px_height'])`. Variabel `sns` adalah tempat kita menampung library **Seaborn** yang akan kita gunakan untuk memvisualisaikan dataset kita. Fungsi `.boxplot()` akan menampilkan visualisasi dari dataset kita dengan visualisasi seperti gambar berikut:
    
    ![gambar boxplot](https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:3be38c69ec4f1ee07ce8c24e42ce23fb20210910131731.png)
@@ -121,6 +126,7 @@ Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan memb
    - `data_train.shape` kemudian kita periksa juga sisa dataset kita, yaitu tersisa 1506 baris dan 21 kolom
    
 5. Kita akan melihat variabel apa saja yang memiliki hubungan yang kuat atas klasifikasi harga suatu hp
+   
    Pertama kita akan melihat 21 kolom yang ada dalam dataset dalam bentuk tabel supaya kita bisa lebih mengetahui tentang isi dari nilai setiap kolom dengan kode berikut `data_train.hist(bins=50, figsize=(20,15))` fungsi `.hist()` akan menampilkan data dalam bentul diagram dengan variabel `bins=50` adalah jumlah menara pada data yaitu 50 sedang `figsize=(20,15)` adalah ukuran dari diagram kita. setelah itu kita gunkan kode `plt.show()` untuk menampilkan diagramnya. Dari tampilan diagram dapat kita simpulkan bahwa ada beberapa variabel yang bertipe biner atau yang isinya hanya 0 dan 1, dan ada yang isinya angka lebih dari itu. Kita lihat list dibawah untuk lebi jelas mana yang memiliki fitur biner dan bukan.
    - binary_features = blue, dual_sim, four_g, three_g, touch_screen, wifi
    - non_binary_features = battery_power, clock_speed, fc, int_memory, m_dep, mobile_wt, n_core, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, price_range
