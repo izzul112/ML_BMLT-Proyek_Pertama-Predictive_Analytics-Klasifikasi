@@ -15,8 +15,10 @@ Saat ini hp sudah sangat mudah untuk dimiliki oleh hampir semua orang, mulai dar
 
 Solusi dari masalah tersebut, kita kembangkan sebuah model Machine Learning (ML) untuk membantu kita yang kesulitan menentukan sebuah rentang kelas harga dari hp, apakah hp dengan spesifikasi sekian-sekian yang berada di kelas harga menengah, apakah sesuai dengan kelas harganya, atau kita di tipu oleh sales-sales hp, karena mereka ingin prodak tersebut segera habis.
 
-- referensi
-- referensi
+- [Tingkat Harga Smartphone](https://seremonia.kontan.co.id/news/ini-tingkatan-smartphone-berdasarkan-harga-spesifikasi)
+- [Spek HP berdasar harga](https://www.droidlime.com/fitur/ini-bedanya-hp-entry-level-mainstream-high-end-dan-flagship/)
+- [Gimmick](https://youtu.be/cvp-YcCgHpU)
+- [Genjutsu Marketing](https://youtu.be/pjKR2xfV83Y)
 
 ## Business Understanding
 
@@ -35,13 +37,13 @@ Solusi dari masalah tersebut, kita kembangkan sebuah model Machine Learning (ML)
 ### Solution statements: 
 
 - Untuk menghasilkan model yang optimal namun tetap sederhana kita akan menggunakan 3 algoritma yaitu KNeighborsClassifier, RandomForestClassifier, GradientBoostingClassifier.
-- Dari 3 algoritma di atas kita akan menggunakan metrik Mean Absolute Error yang memang cocok untuk kasus klasifikasi, untuk melihat pada ketiga algoritma diatas mana yang paling powerfull.
+- Dari 3 algoritma di atas kita akan menggunakan metrik `accuracy_score` dan `classification_report` yang memang cocok untuk kasus klasifikasi, untuk melihat pada ketiga algoritma diatas mana yang paling powerfull.
 
 ## Data Understanding
 
 Kita akan menggunkan dataset yang berisi 21 variabel yang biasanya sering ditanyakan ketika membeli hp atau mungkin menjadi suatu standar yang digunakan masyarakat dalam menggolongkan kelas harga dari suatu hp.
 
-Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv). Yang di publis oleh ABHISHEK SHARMA.
+Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&select=train.csv). Yang di publish oleh ABHISHEK SHARMA.
 
 ### Variabel-variabel pada Mobile Price Classification adalah sebagai berikut:
 
@@ -68,10 +70,10 @@ Sumber dataset yang akan kita gunakan berasal dari [Kaggle](https://www.kaggle.c
 - price_range : rentang harga
 
 Dari 21 variabel diatas variabel price_range adalah sasaran kita, kita akan membuat model berdasar rentang harga yang ada di dalam variabel price_range, dengan nilai:
-- 0 = low cost (murah)
-- 1 = medium cost (standar)
-- 2 = high cost (mahal / flagship)
-- 3 = very high cost (hp para sultan)
+- 0 = low cost (Entry-level)
+- 1 = medium cost (Mid-range)
+- 2 = high cost (High-end)
+- 3 = very high cost (Flagship / hp para Sultan)
 
 **Rubrik/Kriteria Tambahan (Opsional):**
 1. Kita akan melihat ada berapa jumlah baris dari data dalam tampilan tabel.
