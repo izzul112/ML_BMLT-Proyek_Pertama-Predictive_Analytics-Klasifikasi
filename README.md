@@ -126,7 +126,7 @@ Langsung saja kita mulai dari yang pertama yaitu:
    
 5. Kita akan melihat apakah data kita memiliki outliers.
    
-   Kita akan mengeceknya dengan fungsi `sns.boxplot(x=data_train['px_height'])`. Variabel `sns` adalah tempat kita menampung library **Seaborn** yang akan kita gunakan untuk memvisualisaikan dataset kita. Fungsi `.boxplot()` akan menampilkan visualisasi dari dataset kita dengan visualisasi seperti gambar berikut:
+   Kita akan mengeceknya dengan fungsi `sns.boxplot(x=data_train['px_height'])` [1]. Variabel `sns` adalah tempat kita menampung library **Seaborn** yang akan kita gunakan untuk memvisualisaikan dataset kita. Fungsi `.boxplot()` akan menampilkan visualisasi dari dataset kita dengan visualisasi seperti gambar berikut:
    
    ![gambar boxplot](https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:3be38c69ec4f1ee07ce8c24e42ce23fb20210910131731.png)
    
@@ -241,7 +241,7 @@ Di tahap ini kita akan menggunakan 3 jenis algoritma yaitu:
 
 Baiklah mari kita jabarkan ketiga poin diatas satu-persatu:
 
-1. K-Nearest Neighbor (KNN) dengan KNeighborsClassifier
+1. K-Nearest Neighbor (KNN) dengan KNeighborsClassifier [2]
 
    Algoritma KNN menggunakan ‘kesamaan fitur’ untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan.
    
@@ -258,7 +258,7 @@ Baiklah mari kita jabarkan ketiga poin diatas satu-persatu:
    - Rentan pada variabel yang non-informatif.
    
 
-2. Random Forest dengan RandomForestClassifier
+2. Random Forest dengan RandomForestClassifier [3]
 
    Algoritma random forest adalah salah satu algoritma supervised learning. Ia dapat digunakan untuk menyelesaikan masalah klasifikasi dan regresi. Random forest juga merupakan algoritma yang sering digunakan karena cukup sederhana tetapi memiliki stabilitas yang mumpuni.
    
@@ -273,7 +273,7 @@ Baiklah mari kita jabarkan ketiga poin diatas satu-persatu:
    - Membutuhkan tuning model yang tepat untuk data.
    
    
-3. Boosting Algorithm dengan GradientBoostingClassifier
+3. Boosting Algorithm dengan GradientBoostingClassifier [4]
 
    Algoritma yang menggunakan teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.
    
@@ -293,9 +293,9 @@ Ditahap ini kita akan mengevaluasi setiap model dengan menggunakan metrik `accur
 
 Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik diatas:
 
-1. Cara kerja metrik `accuracy_score`
+1. Cara kerja metrik `accuracy_score` [5]
 
-   Metrik `accuracy_score` bekerja dengan rumus, Accuracy Score = (TP+TN)/ (TP+FN+TN+FP), dimana:
+   Metrik `accuracy_score` bekerja dengan rumus, Accuracy Score = (TP+TN)/ (TP+FN+TN+FP) [6], dimana:
    - TP = True Positive 
    - TN = True Negative
    - FP = False Positive
@@ -312,12 +312,12 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
    
    Dari hasil diatas **Model KNN** bisa dibilang yang terbaik menurut metrik `accuracy_score`.
    
-2. Cara kerja metrik `classification_report`
+2. Cara kerja metrik `classification_report` [7]
    
    Metrik `classification_report` bekerja dengan mengembalikan 4 nilai yaitu 'precision', 'recall', 'f1-score', 'support'. Dengan acuan seperti berikut:
    - Jika dataset memiliki jumlah data False Negatif dan False Positif yang seimbang (Symmetric), maka bisa gunakan **Accuracy**, tetapi jika tidak seimbang, maka sebaiknya menggunakan **F1-Score**.
    - Dalam suatu problem, jika lebih memilih False Positif lebih baik terjadi daripada False Negatif, misalnya: Dalam kasus Fraud/Scam, kecenderungan model mendeteksi transaksi sebagai fraud walaupun kenyataannya bukan, dianggap lebih baik, daripada transaksi tersebut tidak terdeteksi sebagai fraud tetapi ternyata fraud. Untuk problem ini sebaiknya menggunakan **Recall**.
-   - Sebaliknya, jika lebih menginginkan terjadinya True Negatif dan sangat tidak menginginkan terjadinya False Positif, sebaiknya menggunakan **Precision**.
+   - Sebaliknya, jika lebih menginginkan terjadinya True Negatif dan sangat tidak menginginkan terjadinya False Positif, sebaiknya menggunakan **Precision**. [8]
    
    Hasil printnya sebagai berikut:
    
@@ -327,7 +327,13 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
    
    ![image](https://user-images.githubusercontent.com/43197282/181409862-5d568ad2-bb25-4ff3-aebb-85721637200a.png)
 
-   Dari hasil print bisa di simpulkan **Model KNN** masih memimpin soal hasil, kita melihatnya dari Test nya bukan Trainnya. Kita lihat nilai accuracy karena jumlah data kita yang seimbang.
+   Dengan hasil:
+   
+      - KNN = 92%
+      - Random Forest = 78%
+      - Boosting = 90%
+   
+   Bisa di simpulkan **Model KNN** masih memimpin soal hasil, kita melihatnya dari Test nya bukan Trainnya. Kita lihat nilai accuracy karena jumlah data kita yang seimbang.
    
    
 ## Conclusion
@@ -337,18 +343,19 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
 - Kita juga berhasil membuat 3 model model machine learning yang dapat memprediksi kelas harga hp berdasar fitur-fitur yang ada, dan kita mendapatkan dari 3 model yang ada Model KNN-lah yang paling powerfull.
 
 ## Reference
-[1] Scikit-learn KNN Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html). Diakses pada: Juli 2022.
 
-[2] Scikit-learn Random Forest Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html). Diakses pada: Juli 2022.
+[1] HHM, "Mengenal Box-Plot (Box and Whisker Plots)", in Articles Binus University. Tersedia [tautan](https://accounting.binus.ac.id/2020/12/19/mengenal-box-plot-box-and-whisker-plots/). Diakses pada: Juli 2022.
 
-[3] Scikit-learn Boosting Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html). Diakses pada: Juli 2022.
+[2] Scikit-learn K-NN Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html). Diakses pada: Juli 2022.
 
-[4] Scikit-learn accuracy_score Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). Diakses pada: Juli 2022.
+[3] Scikit-learn Random Forest Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html). Diakses pada: Juli 2022.
 
-[5] Scikit-learn classification_report Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report). Diakses pada: Juli 2022.
+[4] Scikit-learn Boosting Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html). Diakses pada: Juli 2022.
 
-[6] Stevanus Setiawan, "Membicarakan Precision, Recall, dan F1-Score", in Medium. Tersedia [tautan](https://stevkarta.medium.com/membicarakan-precision-recall-dan-f1-score-e96d81910354). Diakses pada: Juli 2022.
+[5] Scikit-learn accuracy_score Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). Diakses pada: Juli 2022.
 
-[7] HHM, "Mengenal Box-Plot (Box and Whisker Plots)", in Articles Binus University. Tersedia [tautan](https://accounting.binus.ac.id/2020/12/19/mengenal-box-plot-box-and-whisker-plots/). Diakses pada: Juli 2022.
+[6] Kumar, Bijay. "Scikit learn accuracy_score", in Python Guides. Tersedia [tautan](https://pythonguides.com/scikit-learn-accuracy-score/). Diakses pada: Juli 2022.
+
+[7] Scikit-learn classification_report Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report). Diakses pada: Juli 2022.
 
 [8] Hendra, "Terminologi Machine Learning", in Blog. Tersedia [tautan](https://www.hendra.my.id/2020/09/terminologi-machine-learning.html). Diakses pada: Juli 2022.
