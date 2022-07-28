@@ -195,7 +195,8 @@ Di proses ini kita akan melakukan 2 proses yaitu:
 1. Reduksi dimensi dengan Principal Component Analysis (PCA).
 2. Pembagian dataset dengan fungsi train_test_split dari library sklearn.
 
-**Rubrik/Kriteria Tambahan (Opsional):**
+Baiklah mari kita lakukan hal diatas satu-persatu:
+
 1. Reduksi dimensi dengan Principal Component Analysis (PCA).
    Teknik reduksi (pengurangan) dimensi adalah prosedur yang mengurangi jumlah fitur dengan tetap mempertahankan informasi pada data. Teknik pengurangan dimensi yang paling populer adalah Principal Component Analysis atau disingkat menjadi PCA. Teknik PCA digunakan untuk mereduksi variabel asli menjadi sejumlah kecil variabel baru yang tidak berkorelasi linier, disebut komponen utama (PC). Komponen utama ini dapat menangkap sebagian besar varians dalam variabel asli. Sehingga, saat teknik PCA diterapkan pada data, ia hanya akan menggunakan komponen utama dan mengabaikan sisanya.
    
@@ -302,6 +303,7 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
    Dalam klasifikasi multilabel, fungsi mengembalikan akurasi subset. Jika seluruh rangkaian label yang diprediksi untuk sampel secara akurat cocok dengan rangkaian label yang sebenarnya. Maka akurasi subset adalah 1,0 jika tidak, akurasinya hampir 0,0.
    
    Hasil keluaran dari metriknya adalah seperti berikut:
+   
    ![image](https://user-images.githubusercontent.com/43197282/181408987-795ac4f8-a338-4c3f-a436-0f26984f1a5c.png)
 
    Mari kita viasualisasikan hasil diatas ke dalam tampilan yang lebih menarik:
@@ -348,3 +350,5 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
 [6] Stevanus Setiawan, "Membicarakan Precision, Recall, dan F1-Score", in Medium. Tersedia [tautan](https://stevkarta.medium.com/membicarakan-precision-recall-dan-f1-score-e96d81910354). Diakses pada: Juli 2022.
 
 [7] HHM, "Mengenal Box-Plot (Box and Whisker Plots)", in Articles Binus University. Tersedia [tautan](https://accounting.binus.ac.id/2020/12/19/mengenal-box-plot-box-and-whisker-plots/). Diakses pada: Juli 2022.
+
+[8] Hendra, "Terminologi Machine Learning", in Blog. Tersedia [tautan](https://www.hendra.my.id/2020/09/terminologi-machine-learning.html). Diakses pada: Juli 2022.
