@@ -13,9 +13,9 @@ Saat ini hp sudah sangat mudah untuk dimiliki oleh hampir semua orang, mulai dar
 
 Solusi dari masalah tersebut, kita kembangkan sebuah model Machine Learning (ML) untuk membantu kita yang kesulitan menentukan sebuah rentang kelas harga dari hp, apakah hp dengan spesifikasi sekian-sekian yang berada di kelas harga menengah, apakah sesuai dengan kelas harganya, atau kita di tipu oleh sales-sales hp, karena mereka ingin prodak tersebut segera habis.
 
-- [Spek HP berdasar harga](https://www.droidlime.com/fitur/ini-bedanya-hp-entry-level-mainstream-high-end-dan-flagship/)
-- [Gimmick](https://youtu.be/cvp-YcCgHpU)
-- [Genjutsu Marketing](https://youtu.be/pjKR2xfV83Y)
+- Menurut (Aqmal Maulana, [Spek HP berdasar harga](https://www.droidlime.com/fitur/ini-bedanya-hp-entry-level-mainstream-high-end-dan-flagship/))
+- Menurut (Bang Dedy Irvan, [Membedakan Hape Pakai Gimmick Marketing](https://youtu.be/cvp-YcCgHpU))
+- Menurut (Bang Tira, [Genjutsu Marketing](https://youtu.be/pjKR2xfV83Y))
 
 ## Business Understanding
 
