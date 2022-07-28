@@ -344,18 +344,18 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
 
 ## Reference
 
-[1] HHM, "Mengenal Box-Plot (Box and Whisker Plots)", in Articles Binus University. Tersedia [tautan](https://accounting.binus.ac.id/2020/12/19/mengenal-box-plot-box-and-whisker-plots/). Diakses pada: Juli 2022.
+[1] HHM, "Mengenal Box-Plot (Box and Whisker Plots)", in Articles Binus University. Tersedia: [tautan](https://accounting.binus.ac.id/2020/12/19/mengenal-box-plot-box-and-whisker-plots/). Diakses pada: Juli 2022.
 
-[2] Scikit-learn K-NN Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html). Diakses pada: Juli 2022.
+[2] Scikit-learn K-NN Algorithm Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html). Diakses pada: Juli 2022.
 
-[3] Scikit-learn Random Forest Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html). Diakses pada: Juli 2022.
+[3] Scikit-learn Random Forest Algorithm Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html). Diakses pada: Juli 2022.
 
-[4] Scikit-learn Boosting Algorithm Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html). Diakses pada: Juli 2022.
+[4] Scikit-learn Boosting Algorithm Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html). Diakses pada: Juli 2022.
 
-[5] Scikit-learn accuracy_score Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). Diakses pada: Juli 2022.
+[5] Scikit-learn accuracy_score Metrics Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html). Diakses pada: Juli 2022.
 
-[6] Kumar, Bijay. "Scikit learn accuracy_score", in Python Guides. Tersedia [tautan](https://pythonguides.com/scikit-learn-accuracy-score/). Diakses pada: Juli 2022.
+[6] Kumar, Bijay. "Scikit learn accuracy_score", in Python Guides. Tersedia: [tautan](https://pythonguides.com/scikit-learn-accuracy-score/). Diakses pada: Juli 2022.
 
-[7] Scikit-learn classification_report Metrics Documentation. Tersedia [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report). Diakses pada: Juli 2022.
+[7] Scikit-learn classification_report Metrics Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report). Diakses pada: Juli 2022.
 
-[8] Hendra, "Terminologi Machine Learning", in Blog. Tersedia [tautan](https://www.hendra.my.id/2020/09/terminologi-machine-learning.html). Diakses pada: Juli 2022.
+[8] Hendra, "Terminologi Machine Learning", in Blog. Tersedia: [tautan](https://www.hendra.my.id/2020/09/terminologi-machine-learning.html). Diakses pada: Juli 2022.
