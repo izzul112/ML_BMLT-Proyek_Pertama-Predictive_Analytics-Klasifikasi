@@ -359,3 +359,18 @@ Baiklah tanpa berlama-lama lagi kita lihat cara cara kerja dari kedua metrik dia
 [7] Scikit-learn classification_report Metrics Documentation. Tersedia: [tautan](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html#sklearn.metrics.classification_report). Diakses pada: Juli 2022.
 
 [8] Hendra, "Terminologi Machine Learning", in Blog. Tersedia: [tautan](https://www.hendra.my.id/2020/09/terminologi-machine-learning.html). Diakses pada: Juli 2022.
+
+# Submission 1: Nama Proyek Anda
+Nama:
+
+Username dicoding:
+
+| | Deskripsi |
+| ----------- | ----------- |
+| Dataset | [nama dataset](https://www.kaggle.com/) |
+| Masalah | Deskripsi masalah yang di angkat |
+| Solusi machine learning | Deskripsi solusi machine learning yang akan dibuat |
+| Metode pengolahan | Deskripsi metode pengolahan data yang digunakan |
+| Arsitektur model | Deskripsi arsitektur model yang diguanakan |
+| Metrik evaluasi | Deksripsi metrik yang digunakan untuk mengevaluasi performa model |
+| Performa model | Deksripsi performa model yang dibuat |
